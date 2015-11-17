@@ -15,7 +15,38 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from dancematch_app import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    # ex. /
+    url(r'^$', views.index, name='index'),
+    # ex. /profile/5/
+    url(r'^profile/(?P<dancer_id>[0-9]+)/$', views.profile, name='profile'),
+    # ex. /edit/5/
+    url(r'^edit/(?P<user_id>[0-9]+)/$', views.edit_profile, name='edit_profile'),
+    # ex. /edit/5/13
+    url(r'^edit/(?P<user_id>[0-9]+)/(?P<dance_pref_id>[0-9]+)/$', views.edit_dance, name='edit_dance'),
+    # ex. /dances/
+    url(r'^dances/', views.dances, name='dances'),
+    url(r'^results/', views.results, name='results'),
+    url(r'^api_dance_prefs/', views.api_dance_prefs, name='api_dance_prefs'),
+    url(r'^api_dance_list/', views.api_dance_list, name='api_dance_list'),
+    url(r'^api_role_list/', views.api_role_list, name='api_role_list'),
+    url(r'^api_skill_level_list/', views.api_skill_level_list, name='api_skill_level_list'),
+    url(r'^api_activity_list/', views.api_activity_list, name='api_activity_list'),
+    url(r'^api_goal_list/', views.api_goal_list, name='api_goal_list'),
+    url(r'^api_profile/', views.api_profile, name='api_profile'),
+    url(r'^api_suburb_prefs/', views.api_suburb_prefs, name='api_suburb_prefs'),
+    url(r'^api_app_status/', views.api_app_status, name="api_app_status"),
+
+    # ex. /profile_ajax/
+    url(r'^main/$', views.main, name='main'),
+    url(r'^update_pref/$', views.update_pref, name='update_pref'),
+    url(r'^update_profile/$', views.update_profile, name='update_profile'),
+    url(r'^update_suburb/$', views.update_suburb, name='update_suburb'),
+    # Login
+    url(r'^login/$', views.login_view, name='login'),
+    url(r'^register/$', views.register_view, name='register'),
+    url(r'^img_upload/$', views.img_upload, name='img_upload')
 ]

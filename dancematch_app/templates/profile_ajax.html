@@ -1,0 +1,182 @@
+{% extends "base_generic.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- PROFILE VIEW =========================== -->
+
+<section id="profile_content" class="view">
+    <h1 class="hide">My Profile</h1>
+
+    <div id="profile">
+        <div class="read">
+            <img src="" class="profile_img">
+            <h2 id="dancer_name"></h2>
+            <p class="username"></p>
+            <!--<p class="first_name"></p>-->
+            <!--<p class="last_name"></p>-->
+            <p class="bio"></p>
+        </div>
+        <div class="edit">
+            <p>
+                <a href="/img_upload/">Upload a new image.</a>
+            </p>
+            <input class="edit_field" type="text" name="first_name" placeholder="First Name">
+            <input class="edit_field" type="text" name="last_name" placeholder="Last Name">
+            <textarea class="edit_field" name="bio" rows="4" cols="50" placeholder="Tell us about yourself!"></textarea>
+        </div>
+        <div class="btn_div">
+            <button class="edit_toggle">Edit</button>
+        </div>
+    </div>
+
+    <div id="pref_list">
+        <h2>My Dances</h2>
+
+        <a href="/edit/{{ user.id }}/0/">Add a new dance</a>
+        <button class="new_pref_btn hide">Add a new dance</button>
+
+        <ul class="pref">
+            <li class="selected template">
+                <div class="read">
+                    <span class="dance">Dance Style</span>
+                    <span class="role">Role</span>
+                    <span class="skill_level">Skill Level</span>
+                    <span class="activity">Activity Level</span>
+                    <span class="goal">Goal</span>
+                    <span class="notes">Notes here.</span>
+                </div>
+                <div class="edit">
+                    <!--<label for="dance_list">Dance Style: </label>-->
+                    <!--<select id="dance_list" class="edit_field dance_list"></select>-->
+                    <!--<label for="role_list">Role: </label>-->
+                    <!--<select id="role_list" class="edit_field role_list"></select>-->
+                    <!--<label for="skill_level_list">Skill Level: </label>-->
+                    <!--<select id="skill_level_list" class="edit_field skill_level_list"></select>-->
+                    <!--<label for="activity_list">Working on: </label>-->
+                    <!--<select id="activity_list" class="edit_field activity_list"></select>-->
+                    <!--<label for="goal_list">Goal Type: </label>-->
+                    <!--<select id="goal_list" class="edit_field goal_list">]</select>-->
+                    <!--<label for="notes_textarea">Specific Goals: </label>-->
+                    <!--<textarea id="notes_textarea" class="edit_field notes_textarea" rows="4" cols="50" placeholder="Describe what you're working on.">Notes here.</textarea>-->
+
+                    <label for="dance_list">Dance Style:
+                        <select id="dance_list" class="edit_field dance_list"></select>
+                    </label>
+                    <label for="role_list">Role:
+                        <select id="role_list" class="edit_field role_list"></select>
+                    </label>
+                    <label for="skill_level_list">Skill Level:
+                       <select id="skill_level_list" class="edit_field skill_level_list"></select>
+                    </label>
+                    <label for="activity_list">Working on:
+                        <select id="activity_list" class="edit_field activity_list"></select>
+                    </label>
+                    <label for="goal_list">Goal Type:
+                        <select id="goal_list" class="edit_field goal_list">]</select>
+                    </label>
+                    <label for="notes_textarea">Specific Goals:
+                        <textarea id="notes_textarea" class="edit_field notes_textarea" rows="4" cols="50" placeholder="Describe what you're working on.">Notes here.</textarea>
+                    </label>
+
+                </div>
+                <div>
+                    <button class="edit_toggle">Edit</button>
+                    <button class="delete warning hide">Delete</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!--TODO: Move new pref li into pref list. Fix db posting. Hide and show on btn click.-->
+    <div id="new_pref">
+        <div class="btn_div">
+            <button class="save_pref">Save</button>
+            <button class="cancel_pref">Cancel</button>
+        </div>
+    </div>
+
+    <div id="suburbs">
+        <h2>
+            Where I Would Travel
+        </h2>
+        <button class="suburb_toggle">Edit Preferred Locations</button>
+        <div id="suburb_list" class="read">
+        </div>
+    </div>
+    <!--<div id="venues">-->
+        <!--<h2>-->
+            <!--Venues I attend-->
+        <!--</h2>-->
+        <!--<div id="venue_list">-->
+        <!--</div>-->
+    <!--</div>-->
+</section>
+
+<!-- END PROFILE VIEW ======================= -->
+
+
+<!-- SEARCH RESULTS VIEW ==================== -->
+
+<section id="search_content" class="view">
+    <h1>Find a Partner</h1>
+    <div id="search_fields">
+        <label>
+            Dance Style:
+            <select class="search_field dance_list">Dance Style</select>
+        </label>
+        <label>
+            Role:
+            <select class="search_field role_list">Role</select>
+        </label>
+        <label>
+            Goal:
+            <select class="search_field goal_list">Goal</select>
+        </label>
+    </div>
+    <div id="placeholder">
+        <p>
+            Select a dance style and role to search for.
+        </p>
+    </div>
+    <table class="hide">
+        <caption>
+                A listing of all dances uploaded by site users.
+        </caption>
+        <thead id="results_header">
+            <tr>
+                <th id="profile_img">Image</th>
+                <th id="name" class="sortable sorted"><button>Name ^v</button></th>
+                <!--<th id="dance">Dance</th>-->
+                <!--<th id="role">Role</th>-->
+                <th id="skill_level" class="sortable"><button>Level ^v</button></th>
+                <th id="goal">Goal</th>
+                <th id="notes">Description</th>
+                <th id="loc_match">Location Match</th>
+                <th id="email">Contact</th>
+            </tr>
+        </thead>
+        <tbody id="pref_results">
+            <tr class="template">
+                <td headers="profile_img" class="profile_img">
+                    <img src="" class="thumb">
+                </td>
+                <td headers="dancer" class="dancer">Dancer</td>
+                <!--<td headers="dance" class="dance">Dance Style</td>-->
+                <!--<td headers="role" class="role">Role</td>-->
+                <td headers="skill_level" class="skill_level">Skill Level</td>
+                <td headers="goal" class="goal">Goal</td>
+                <td headers="notes" class="notes">Notes here.</td>
+                <td headers="loc_match" class="suburbs"></td>
+                <td headers="email" class="email"><a href="">Email</a></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- END SEARCH RESULTS VIEW ================ -->
+
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+{% endblock %}

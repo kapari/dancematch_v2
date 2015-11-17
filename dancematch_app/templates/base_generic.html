@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load staticfiles %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            DanceMatch
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/style.css' %}"/>
+</head>
+<body>
+<main>
+    {% block content %}
+    Content will be placed here
+    {% endblock %}
+</main>
+<header>
+    <nav>
+        <a href="/">DanceMatch Home</a>
+        <a href="/login">Log in</a>
+        <a href="/main/#profile">My Profile</a>
+        <a href="/main/#search">Find a Partner</a>
+    </nav>
+</header>
+<footer>
+    <a href="mailto:ariel@arielkaplan.com">Send feedback</a>
+    <a href="/admin/">Admin</a>
+    <span>&copy;2015 Ariel Kaplan</span>
+</footer>
+<script src="/static/scripts/view.js"></script>
+<script src="/static/scripts/profile.js"></script>
+<script src="/static/scripts/search.js"></script>
+<script src="/static/scripts/main.js"></script>
+</body>
+</html>

@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'dancematch_app'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -101,7 +102,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# https://devcenter.heroku.com/articles/getting-started-with-django 
+# https://devcenter.heroku.com/articles/getting-started-with-django
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config()

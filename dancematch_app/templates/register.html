@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<h1>
+    Register
+</h1>
+<form method="post">
+    {% csrf_token %}
+    <label>
+        <p>First Name</p>
+        <input name="first_name" type="text">
+    </label>
+    <label>
+        <p>Last Name</p>
+        <input name="last_name" type="text">
+    </label>
+    <label>
+        <p>Email/Username</p>
+        <input name="username" type="email">
+    </label>
+    <label>
+        <p>Password</p>
+        <input name="password" type="password">
+    </label>
+        <input type="submit" value="Register">
+</form>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+{% endblock %}

@@ -1,0 +1,233 @@
+/*http://coolors.co/e88d67-ba444e-fff6f4-fcfcfc-b1e0db*/
+/*rust: #e88d67*/
+/*cranberry: #ba444e*/
+/*warm cream: #fff6f4*/
+/*off-white: #fcfcfc*/
+/*turquoise: #b1e0db*/
+
+/*https://color.adobe.com/create/color-wheel/?base=2&rule=Complementary&selected=1&name=My%20Color%20Theme&mode=rgb&rgbvalues=0.7,0.5284378724283295,0.5132582274345086,1,0.938653882175379,0.9332260391921552,1,0.8467825642507821,0.8332260391921551,0.4432927178489487,0.7,0.5564421684792349,0.8332260391921551,1,0.9067353759227776&swatchOrder=0,1,2,3,4*/
+
+/*off-white FFEFEE*/
+/*light FFD8D4*/
+/*mid tone B28783*/
+
+/*mint D4FFE7*/
+/*green 71B28E*/
+
+body {
+    background: #FFEFEE;
+    padding: 0;
+    margin: 0;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+header, footer, nav, main, aside, section {
+    box-sizing: border-box;
+}
+
+section {
+    margin-bottom: 3em;
+}
+
+a {
+    color: #71B28E;
+}
+
+header, footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    color: white;
+    background-color: #B28783;
+}
+
+header {
+    top: 0;
+    height: 4em;
+    padding: 1.5em 2em;
+    border-bottom: 4px solid #FFD8D4;
+}
+
+header a, footer a {
+    display: inline-block;
+    margin-right: 2em;
+    color: white
+}
+
+main {
+    position: absolute;
+    /*top: 0;*/
+    /*bottom: 3em;*/
+    left: 0;
+    right: 0;
+    height: 100%;
+    min-width: 400px;
+    padding-top: 5em; /* size of header */
+    margin-left: 50px; /* size of LC */
+    margin-right: 50px; /* size of RC */
+    padding-bottom: 3em; /* size of footer */
+}
+
+/* TABLES */
+table {
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+thead {
+    background-color: #B28783;
+    color: white;
+    text-align: left;
+    border-bottom: 1px solid white;
+}
+
+tbody tr:nth-child(odd){
+    background-color: #FEFEFE;
+}
+
+th, td {
+    padding: 0.5em;
+}
+
+table span {
+    display: block;
+}
+
+/* LISTS */
+ul {
+    list-style-type: none;
+}
+
+li {
+    background-color: #FEFEFE;
+    list-style-type: none;
+    border-bottom: 3px solid #FFEFEE;
+    padding: 1em;
+}
+
+.pref > li {
+    padding: 0.5em 1em;
+}
+
+.pref textarea {
+    display: block;
+}
+
+/* FORMS */
+form {
+    background-color: #FEFEFE;
+    padding: 1.5em;
+}
+
+form label {
+    display: block;
+    padding-bottom: 1.5em;
+    font-size: 1em;
+}
+
+form input,
+form textarea {
+    position: absolute;
+    left: 200px;
+    font-size: 1em;
+}
+
+form input:focus,
+form textarea:focus {
+    border: 2px solid #FFD8D4;
+}
+
+select {
+    border: 1px solid #B28783;
+    border-radius: 0;
+    background-color: #FFEFEE;
+    padding: 0.5em;
+    line-height: 1.5em;
+    /*-webkit-appearance: none;*/
+}
+
+.edit label {
+    display: block;
+}
+
+.read input {
+    display: none;
+    height: 0;
+}
+
+.upload {
+    border: 1px solid #B28783;
+    padding: 0.5em;
+}
+
+img.profile_img {
+    max-width: 50px;
+    max-height: 50px;
+    padding: 4px;
+    background-color: #FFEFEE;
+    border: 1px solid #B28783;
+    display: block;
+}
+
+.thumb {
+    max-width: 60px;
+    max-height: 60px;
+}
+
+button, .button {
+    display: block;
+    padding: 0.5em 1em;
+    border: 1px solid #B28783;
+    background-color: #FFEFEE;
+}
+
+.pref button {
+    display: inline-block;
+    margin: 0.5em 0.5em 0.5em 0;
+}
+
+.save {
+    background-color: darkseagreen;
+    font-weight: bold;
+    border: 1px solid darkseagreen;
+    color: white;
+}
+
+.warning {
+    background-color: #ba444e;
+    color: #FFEFEE;
+    border: 1px solid #ba444e;
+}
+
+#placeholder {
+    margin: 1.5em 0;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    height: 2em;
+    padding: 0.5em 2em;
+}
+
+/* VISIBILITY */
+.template {
+    display: none;
+}
+
+.hide, button.hide {
+    display: none;
+}
+
+.view {
+    display: none;
+}
+
+.view.show {
+    display: block;
+}
+
+#new_pref {
+    display: none;
+}
